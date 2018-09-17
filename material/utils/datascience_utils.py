@@ -115,6 +115,14 @@ def boxplots(table, column=None, by=None, ax=None, fontsize=None, rot=0,
     _plt.gcf().suptitle('')
 
 
+def round_to_nearest(x, int_val):
+    return (_np.round(x / int_val) * int_val).astype(int)
+
+
+def floor_to_nearest(x, int_val):
+    return (_np.floor(x / int_val) * int_val).astype(int)
+
+
 def cut(col, bins, right=True, labels=None, retbins=False, precision=3,
         include_lowest=False):
     out = _pd.cut(
