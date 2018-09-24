@@ -29,7 +29,9 @@ def fast_run_expectancy(retro, re):
     if isinstance(retro, _Table):
         TABLE_FLAG = True
         retro = retro.to_df()
-        re = re.to_df().set_index(['Outs', 'Start_Bases'])
+        re = re.to_df()
+
+    re = re.set_index(['Outs', 'Start_Bases'])
 
     # Build current out-runner states
     idx = list(zip(retro['Outs'], retro['Start_Bases']))

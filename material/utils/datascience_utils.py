@@ -85,7 +85,9 @@ def fill_null(table, fill_column=None, fill_value=None, fill_method=None):
 
 
 def replace(table, column, to_replace, method='pad'):
-    return table.to_df()[column].replace(
+    if isinstance(table, _Table):
+        table = table.to_df()
+    return table[column].replace(
         to_replace, method=method, inplace=False)
 
 

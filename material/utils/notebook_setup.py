@@ -16,5 +16,10 @@ plt.style.use('fivethirtyeight')
 get_ipython().run_line_magic('matplotlib', 'inline')
 mpl.rcParams['figure.facecolor'] = (0.941, 0.941, 0.941, 1.0)
 
+import pandas as pd
+pd.set_option('precision', 3)
+import numpy as np
+np.set_printoptions(precision=3)
+
 print("Matplotlib imported as mpl")
 print("Matplotlib.pyplot imported as plt")
