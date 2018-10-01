@@ -77,11 +77,18 @@ def scatterplot_by_x(table, x_columns, y_column, base_width=5, height=5,
 
 
 def fill_null(table, fill_column=None, fill_value=None, fill_method=None):
+    TABLE_FLAG = False
     if isinstance(table, _Table):
         table = table.to_df()
+        TABLE_FLAG = True
     data = table[fill_column] if fill_column is not None else table
     data = data.fillna(value=fill_value, method=fill_method)
-    return data.values
+    if fill_column is not None:
+        return data.values
+    else:
+        if TABLE_FLAG:
+            data = _Table.from_df(data)
+        return data
 
 
 def replace(table, column, to_replace, method='pad'):
