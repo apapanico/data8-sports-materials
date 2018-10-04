@@ -121,7 +121,9 @@ def prettify_4thdownbot(data, ax, annotate=True, colorbar=False):
         cbar = _plt.colorbar(PCM, ticks=[4 / 3, 2, 8 / 3])
         cbar.ax.set_yticklabels(['Go for it', 'Punt', 'Kick'], fontsize=15)
 
-def build_expected_shot_values_from_hexbin(shot_dist, close_def_dist, hexbin_plot):
+
+def build_expected_shot_values_from_hexbin(shot_dist, close_def_dist,
+                                           hexbin_plot):
     pc = hexbin_plot.get_children()[0]
     expected_shot_vals = pc.get_array()
     hexbin_locs = pc.get_offsets()
@@ -131,7 +133,7 @@ def build_expected_shot_values_from_hexbin(shot_dist, close_def_dist, hexbin_plo
 
     def closest_bin(loc, bin_locs):
         return dist(bin_locs - loc, axis=1).argmin()
-        
+
     hex_dist = _np.sort(dist(hexbin_locs - hexbin_locs[0], axis=1))[1]
     locs = _np.vstack([shot_dist, close_def_dist]).T
 

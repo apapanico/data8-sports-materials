@@ -188,3 +188,7 @@ def hexbin_plot(data, x, y, C=None, collect=None, gridsize=None, cmap=None,
     )
     hexbin.tick_params(reset=True)
     return hexbin
+
+
+def coin_flip(p):
+    return _np.random.choice(2, p=[1 - p, p])

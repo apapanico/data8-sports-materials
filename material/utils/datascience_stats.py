@@ -3,10 +3,13 @@ warnings.filterwarnings("ignore")
 
 from scipy.stats import pearsonr as _pearsonr
 import statsmodels.api as _sm
+import numpy as _np
 
 
 def correlation(x, y):
     rho = _pearsonr(x, y)[0]
+    if _np.isnan(rho):
+        rho = 0.
     return rho
 
 
@@ -16,6 +19,7 @@ def linear_fit(x, y, constant=True):
     fit = _sm.OLS(y, x).fit()
     out = (fit.params, fit.fittedvalues, fit.resid)
     return out
+
 
 def curve_fit(x, y, smoothness=.5):
     from statsmodels.nonparametric.smoothers_lowess import lowess
