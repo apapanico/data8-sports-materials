@@ -5,6 +5,7 @@ from datascience import Table as _Table
 import pandas as _pd
 import numpy as _np
 import matplotlib.pyplot as _plt
+from pandas.tools.plotting import scatter_matrix as _scatter_matrix
 
 
 def verify_table(tbl, target):
@@ -192,3 +193,9 @@ def hexbin_plot(data, x, y, C=None, collect=None, gridsize=None, cmap=None,
 
 def coin_flip(p):
     return _np.random.choice(2, p=[1 - p, p])
+
+
+def scatter_matrix(data, figsize=(10, 10)):
+    if isinstance(data, _Table):
+        data = data.to_df()
+    _scatter_matrix(data, figsize=figsize)

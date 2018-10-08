@@ -4,6 +4,7 @@ warnings.filterwarnings("ignore")
 from scipy.stats import pearsonr as _pearsonr
 import statsmodels.api as _sm
 import numpy as _np
+from datascience import Table as _Table
 
 
 def correlation(x, y):
@@ -11,6 +12,12 @@ def correlation(x, y):
     if _np.isnan(rho):
         rho = 0.
     return rho
+
+
+def correlation_matrix(data):
+    if isinstance(data, _Table):
+        data = data.to_df()
+    return data.corr()
 
 
 def linear_fit(x, y, constant=True):
