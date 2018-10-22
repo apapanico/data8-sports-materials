@@ -122,10 +122,9 @@ def prettify_4thdownbot(data, ax, annotate=True, colorbar=False):
         cbar.ax.set_yticklabels(['Go for it', 'Punt', 'Kick'], fontsize=15)
 
 
-def build_expected_shot_values_from_hexbin(shot_dist, close_def_dist,
-                                           hexbin_plot):
+def build_expected_value_from_hexbin(x, y, hexbin_plot):
     pc = hexbin_plot.get_children()[0]
-    expected_shot_vals = pc.get_array()
+    expected_vals = pc.get_array()
     hexbin_locs = pc.get_offsets()
 
     def dist(x, axis=0):
@@ -135,7 +134,7 @@ def build_expected_shot_values_from_hexbin(shot_dist, close_def_dist,
         return dist(bin_locs - loc, axis=1).argmin()
 
     hex_dist = _np.sort(dist(hexbin_locs - hexbin_locs[0], axis=1))[1]
-    locs = _np.vstack([shot_dist, close_def_dist]).T
+    locs = _np.vstack([x, y]).T
 
     nearest_bins = []
     for loc in locs:
@@ -148,6 +147,37 @@ def build_expected_shot_values_from_hexbin(shot_dist, close_def_dist,
 
     nan_mask = ~_np.isnan(nearest_bins)
     masked_nearest_bins = nearest_bins[nan_mask].astype(int)
-    esv = _np.full(nan_mask.shape, _np.nan)
-    esv[nan_mask] = expected_shot_vals[masked_nearest_bins]
-    return esv
+    ev = _np.full(nan_mask.shape, _np.nan)
+    ev[nan_mask] = expected_vals[masked_nearest_bins]
+    return ev
+
+
+# def build_expected_shot_values_from_hexbin(shot_dist, close_def_dist,
+#                                            hexbin_plot):
+#     pc = hexbin_plot.get_children()[0]
+#     expected_shot_vals = pc.get_array()
+#     hexbin_locs = pc.get_offsets()
+
+#     def dist(x, axis=0):
+#         return _np.sqrt((x**2).sum(axis=axis))
+
+#     def closest_bin(loc, bin_locs):
+#         return dist(bin_locs - loc, axis=1).argmin()
+
+#     hex_dist = _np.sort(dist(hexbin_locs - hexbin_locs[0], axis=1))[1]
+#     locs = _np.vstack([shot_dist, close_def_dist]).T
+
+#     nearest_bins = []
+#     for loc in locs:
+#         d = dist(hexbin_locs - loc, axis=1).min()
+#         if d <= hex_dist:
+#             nearest_bins.append(closest_bin(loc, hexbin_locs))
+#         else:
+#             nearest_bins.append(_np.nan)
+#     nearest_bins = _np.array(nearest_bins)
+
+#     nan_mask = ~_np.isnan(nearest_bins)
+#     masked_nearest_bins = nearest_bins[nan_mask].astype(int)
+#     esv = _np.full(nan_mask.shape, _np.nan)
+#     esv[nan_mask] = expected_shot_vals[masked_nearest_bins]
+#     return esv

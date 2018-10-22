@@ -10,6 +10,7 @@ print("Setting up Matplotlib...")
 
 import matplotlib as mpl
 import matplotlib.pyplot as plt
+import seaborn as sns
 from IPython import get_ipython
 
 plt.style.use('fivethirtyeight')
@@ -21,5 +22,6 @@ pd.set_option('precision', 3)
 import numpy as np
 np.set_printoptions(precision=3)
 
-print("Matplotlib imported as mpl")
-print("Matplotlib.pyplot imported as plt")
+print("matplotlib imported as mpl")
+print("matplotlib.pyplot imported as plt")
+print("seaborn imported as sns")
