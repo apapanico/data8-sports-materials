@@ -166,6 +166,24 @@ def concat(table_list):
     return _Table.from_df(df)
 
 
+def merge(t1, t2, on, how='outer', fillna=True):
+    import pandas as pd
+    from datascience import Table
+    DS_FLAG = False
+    if isinstance(t1, Table):
+        t1 = t1.to_df()
+        DS_FLAG = True
+    if isinstance(t2, Table):
+        t2 = t2.to_df()
+    full_t = pd.merge(t1, t2, how=how, left_on=on, right_on=on)
+    if fillna:
+        full_t.fillna(0, inplace=True)
+    if DS_FLAG:
+        return Table.from_df(full_t)
+    else:
+        return full_t
+
+
 def multi_sort(table, by, descending=True, na_position='first'):
     sorted_df = table.to_df().sort_values(
         by, ascending=not descending, na_position=na_position)

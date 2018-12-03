@@ -1,0 +1,124 @@
+cal poly slo
+eastern washington
+idaho st
+montana
+montana st
+north dakota
+northern arizona
+northern colorado
+portland st
+sacramento st
+southern utah
+uc-davis
+weber st
+charleston southern
+gardner-webb
+kennesaw st
+liberty
+monmouth nj
+presbyterian
+albany ny
+delaware
+elon
+james madison
+maine
+new hampshire
+rhode island
+richmond
+stony brook
+towson
+villanova
+william & mary
+brown
+columbia
+cornell ny
+dartmouth
+harvard
+pennsylvania
+princeton
+yale
+bethune-cookman
+delaware st
+florida a&m
+hampton
+howard
+morgan st
+norfolk st
+north carolina a&t
+north carolina central
+savannah st
+south carolina st
+illinois st
+indiana st
+missouri st
+north dakota st
+northern iowa
+south dakota
+south dakota st
+southern illinois
+western illinois
+youngstown st
+bryant
+central conn st
+duquesne
+robert morris pa
+sacred heart
+st francis pa
+wagner
+austin peay
+eastern illinois
+eastern kentucky
+jacksonville st
+murray st
+se missouri st
+tennessee st
+tennessee tech
+tennessee-martin
+bucknell
+colgate
+fordham
+georgetown dc
+holy cross
+lafayette
+lehigh
+butler
+campbell
+davidson
+dayton
+drake
+jacksonville fl
+marist
+morehead st
+san diego
+stetson
+valparaiso
+chattanooga
+east tennessee st
+furman
+mercer
+samford
+the citadel
+vmi
+western carolina
+wofford
+abilene christian
+central arkansas
+houston baptist
+incarnate word
+lamar
+mcneese st
+nicholls st
+northwestern st
+sam houston st
+se louisiana
+stephen f. austin
+alabama a&m
+alabama st
+alcorn st
+jackson st
+mississippi valley st
+arkansas-pine bluff
+grambling st
+prairie view a&m
+southern u.
+texas southern
